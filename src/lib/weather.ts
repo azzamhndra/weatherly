@@ -84,3 +84,27 @@ export const formatTime = (time: string): string => {
 export const metersToKm = (meters: number): number => {
   return meters / 1000;
 };
+
+export const getRemainingHoursToday = (
+  time: string[],
+  timezone: string
+): { startIndex: number; endIndex: number } => {
+  const now = new Date();
+  const hourString = now.toLocaleString('en-US', {
+    timeZone: timezone,
+    hour: '2-digit',
+    hour12: false,
+  });
+  const currentHour = parseInt(hourString, 10);
+
+  const startIndex = time.findIndex((t) => {
+    const hourFromTime = parseInt(t.split('T')[1].split(':')[0], 10);
+    return hourFromTime === currentHour;
+  });
+
+  const safeStartIndex = startIndex === -1 ? 0 : startIndex;
+  const todayDate = time[safeStartIndex].split('T')[0];
+  const endIndex = time.findLastIndex((t) => t.split('T')[0] === todayDate);
+
+  return { startIndex: safeStartIndex, endIndex };
+};

@@ -25,6 +25,13 @@ export type GeoLocation = {
   timezone: string;
 };
 
+export type HourlyForecast = {
+  time: string;
+  condition: Condition;
+  temp: number;
+  rain: number;
+};
+
 export type WeatherResponse = {
   current: {
     temperature_2m: number;
@@ -44,6 +51,12 @@ export type WeatherResponse = {
     sunset: string[];
     weather_code: number[];
   };
+  hourly: {
+    time: string[];
+    temperature_2m: number[];
+    weather_code: number[];
+    precipitation_probability: number[];
+  };
 };
 
 export type WeatherData = {
@@ -57,4 +70,5 @@ export type WeatherData = {
   low: number;
   details: WeatherDetails;
   daily: DailyForecast[];
+  hourly: HourlyForecast[];
 };

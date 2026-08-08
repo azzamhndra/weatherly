@@ -9,6 +9,7 @@ import {
   formatDayName,
   formatTime,
   metersToKm,
+  getRemainingHoursToday,
 } from '@/lib/weather';
 
 export const useWeather = () => {
@@ -37,7 +38,7 @@ export const useWeather = () => {
     longitude: number
   ): Promise<WeatherResponse> => {
     const weatherResponse = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,surface_pressure,visibility,uv_index,weather_code&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,weather_code&forecast_days=7&timezone=auto`
+      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,surface_pressure,visibility,uv_index,weather_code&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,weather_code&forecast_days=7&timezone=auto&hourly=temperature_2m,weather_code,precipitation_probability`
     );
 
     if (!weatherResponse.ok) throw new Error('Gagal mengambil data cuaca.');
@@ -50,6 +51,10 @@ export const useWeather = () => {
     location: GeoLocation,
     weatherData: WeatherResponse
   ): WeatherData => {
+    const { startIndex, endIndex } = getRemainingHoursToday(
+      weatherData.hourly.time,
+      location.timezone
+    );
     return {
       city: location.name,
       country: location.country,
@@ -74,6 +79,19 @@ export const useWeather = () => {
         high: weatherData.daily.temperature_2m_max[index],
         low: weatherData.daily.temperature_2m_min[index],
       })),
+      hourly: weatherData.hourly.time
+        .slice(startIndex, endIndex + 1) // bukan startIndex + 24 lagi
+        .map((t, i) => {
+          const actualIndex = startIndex + i;
+          return {
+            time: formatTime(t),
+            condition: mapWeatherCode(
+              weatherData.hourly.weather_code[actualIndex]
+            ),
+            temp: weatherData.hourly.temperature_2m[actualIndex],
+            rain: weatherData.hourly.precipitation_probability[actualIndex],
+          };
+        }),
     };
   };
 
