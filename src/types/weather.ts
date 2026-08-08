@@ -22,6 +22,7 @@ export type GeoLocation = {
   country: string;
   longitude: number;
   latitude: number;
+  timezone: string;
 };
 
 export type WeatherResponse = {
@@ -48,6 +49,7 @@ export type WeatherResponse = {
 export type WeatherData = {
   city: string;
   country: string;
+  timezone: string;
   temp: number;
   condition: Condition;
   feelsLike: number;

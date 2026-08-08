@@ -8,11 +8,16 @@ type WeatherDetailsCardProps = {
 const WeatherDetailsCard = ({ data }: WeatherDetailsCardProps) => {
   const detail = data.details;
   const items = [
-    { icon: Droplets, label: 'Humidity', value: detail.humidity, unit: '%' },
-    { icon: Wind, label: 'Wind Speed', value: detail.wind, unit: 'km/h' },
-    { icon: Gauge, label: 'Pressure', value: detail.pressure, unit: 'hPa' },
-    { icon: Eye, label: 'Visibility', value: detail.visibility, unit: 'km' },
-    { icon: Sun, label: 'UV Index', value: detail.uv },
+    { icon: Droplets, label: 'Kelembapan', value: detail.humidity, unit: '%' },
+    { icon: Wind, label: 'Kecepatan Angin', value: detail.wind, unit: 'km/h' },
+    {
+      icon: Gauge,
+      label: 'Tekanan Udara',
+      value: detail.pressure,
+      unit: 'hPa',
+    },
+    { icon: Eye, label: 'Jarak Pandang', value: detail.visibility, unit: 'km' },
+    { icon: Sun, label: 'Indeks UV', value: detail.uv },
     { icon: Sunrise, label: 'Sunrise', value: detail.sunrise },
     { icon: Sunset, label: 'Sunset', value: detail.sunset },
   ];

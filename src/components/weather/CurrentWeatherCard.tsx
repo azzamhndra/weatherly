@@ -16,14 +16,16 @@ const gradients: Record<WeatherData['condition'], string> = {
 
 const CurrentWeatherCard = ({ data }: CurrentWeatherCardProps) => {
   const now = new Date();
-  const date = now.toLocaleDateString('id', {
+  const date = now.toLocaleDateString('id-ID', {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
+    timeZone: data.timezone,
   });
-  const time = now.toLocaleTimeString('id', {
+  const time = now.toLocaleTimeString('id-ID', {
     hour: '2-digit',
     minute: '2-digit',
+    timeZone: data.timezone,
   });
 
   return (

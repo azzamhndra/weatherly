@@ -53,6 +53,7 @@ export const useWeather = () => {
     return {
       city: location.name,
       country: location.country,
+      timezone: location.timezone,
       temp: weatherData.current.temperature_2m,
       condition: mapWeatherCode(weatherData.current.weather_code),
       feelsLike: weatherData.current.apparent_temperature,

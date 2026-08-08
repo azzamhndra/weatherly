@@ -18,17 +18,17 @@ export const formatDayName = (dateString: string): string => {
   const today = new Date();
 
   if (date.toDateString() === today.toDateString()) {
-    return 'Today';
+    return 'Hari Ini';
   }
 
   const dayNames = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
+    'Minggu',
+    'Senin',
+    'Selasa',
+    'Rabu',
+    'Kamis',
+    'Jumat',
+    'Sabtu',
   ];
 
   return dayNames[date.getDay()];

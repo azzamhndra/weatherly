@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import Github from '@/components/ui/Github';
 import SearchBar from '@/components/weather/SearchBar';
 import { CloudSun, Moon, Sun } from 'lucide-react';
 import { useEffect, useState } from 'react';
@@ -38,7 +39,21 @@ const Navbar = ({ onSearch, loading }: NavbarProps) => {
         <div className="min-w-0 flex-1">
           <SearchBar onSearch={onSearch} loading={loading} />
         </div>
-        <div>
+        <div className="flex gap-2 items-center">
+          <Button
+            variant={'outline'}
+            size={'icon-lg'}
+            className="rounded-full"
+            onClick={() =>
+              window.open(
+                'https://github.com/azzamhndra',
+                '_blank',
+                'noopener,noreferrer'
+              )
+            }
+          >
+            <Github />
+          </Button>
           <Button
             variant={'outline'}
             size={'icon-lg'}
