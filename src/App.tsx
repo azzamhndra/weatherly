@@ -20,7 +20,7 @@ const App = () => {
               <WeatherDetailsCard data={data} />
             </div>
             <DailyForecast data={data} />
-            <HourlyForecast />
+            <HourlyForecast data={data} />
           </div>
         )}
       </main>

@@ -68,6 +68,10 @@
     oklch(0.82 0.08 280 / 14%),
     transparent 62%
   );
+
+  --shadow-soft-value:
+    0 1px 2px oklch(0.208 0.042 265.755 / 4%),
+    0 12px 32px -12px oklch(0.208 0.042 265.755 / 10%);
 }
 
 .dark {
@@ -131,6 +135,8 @@
     oklch(0.72 0.1 280 / 18%),
     transparent 62%
   );
+  --shadow-soft-value:
+    0 1px 2px oklch(0 0 0 / 24%), 0 14px 34px -14px oklch(0 0 0 / 46%);
 }
 
 @theme inline {
@@ -180,6 +186,8 @@
   --background-image-gradient-cloudy: var(--gradient-cloudy);
   --background-image-gradient-rain: var(--gradient-rain);
   --background-image-gradient-snow: var(--gradient-snow);
+
+  --shadow-soft: var(--shadow-soft-value);
 }
 
 @layer base {

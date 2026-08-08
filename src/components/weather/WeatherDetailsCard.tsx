@@ -24,7 +24,7 @@ const WeatherDetailsCard = ({ data }: WeatherDetailsCardProps) => {
   return (
     <section className="rounded-3xl border border-border bg-card p-6 shadow-soft">
       <h3 className="text-sm text-muted-foreground font-medium tracking-wider uppercase">
-        Details
+        Detail
       </h3>
       <div className="mt-5 grid grid-cols-2 gap-3">
         {items.map(({ icon: Icon, label, value, unit }) => (
