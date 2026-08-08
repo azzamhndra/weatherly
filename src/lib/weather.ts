@@ -72,3 +72,15 @@ export const buildWeatherUrl = (
 
   return `${WEATHER_API_CONFIG.baseUrl}?${params.toString()}`;
 };
+
+export const formatTime = (time: string): string => {
+  const date = new Date(time);
+  return date.toLocaleTimeString('id-ID', {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+};
+
+export const metersToKm = (meters: number): number => {
+  return meters / 1000;
+};

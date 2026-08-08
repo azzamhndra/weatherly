@@ -1,5 +1,6 @@
 import CurrentWeatherCard from '@/components/weather/CurrentWeatherCard';
 import Navbar from '@/components/weather/Navbar';
+import WeatherDetailsCard from '@/components/weather/WeatherDetailsCard';
 import { useWeather } from '@/hooks/useWeather';
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
           <div className="space-y-6">
             <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
               <CurrentWeatherCard data={data} />
+              <WeatherDetailsCard data={data} />
             </div>
           </div>
         )}

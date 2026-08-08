@@ -4,7 +4,12 @@ import type {
   WeatherResponse,
   WeatherData,
 } from '@/types/weather';
-import { mapWeatherCode, formatDayName } from '@/lib/weather';
+import {
+  mapWeatherCode,
+  formatDayName,
+  formatTime,
+  metersToKm,
+} from '@/lib/weather';
 
 export const useWeather = () => {
   const [data, setData] = useState<WeatherData | null>(null);
@@ -57,10 +62,10 @@ export const useWeather = () => {
         humidity: weatherData.current.relative_humidity_2m,
         wind: weatherData.current.wind_speed_10m,
         pressure: weatherData.current.surface_pressure,
-        visibility: weatherData.current.visibility,
+        visibility: metersToKm(weatherData.current.visibility),
         uv: weatherData.current.uv_index,
-        sunrise: weatherData.daily.sunrise[0],
-        sunset: weatherData.daily.sunset[0],
+        sunrise: formatTime(weatherData.daily.sunrise[0]),
+        sunset: formatTime(weatherData.daily.sunset[0]),
       },
       daily: weatherData.daily.time.map((day, index) => ({
         day: formatDayName(day),
