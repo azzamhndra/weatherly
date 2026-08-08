@@ -1,4 +1,4 @@
-import WeatherIcon from '@/components/weather/WeatherIcon';
+import WeatherIcon from '@/components/ui/weather/WeatherIcon';
 import type { WeatherData } from '@/types/weather';
 import { Droplet, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';

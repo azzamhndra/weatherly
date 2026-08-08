@@ -51,6 +51,12 @@
     transparent 62%
   );
 
+  --gradient-destructive: linear-gradient(
+    140deg,
+    oklch(0.58 0.22 25 / 20%),
+    transparent 62%
+  );
+
   --gradient-cloudy: linear-gradient(
     140deg,
     oklch(0.62 0.12 250 / 12%),
@@ -115,6 +121,12 @@
   --gradient-partly: linear-gradient(
     140deg,
     oklch(0.58 0.19 275 / 20%),
+    transparent 62%
+  );
+
+  --gradient-destructive: linear-gradient(
+    140deg,
+    oklch(0.7 0.19 22 / 24%),
     transparent 62%
   );
 
@@ -186,6 +198,7 @@
   --background-image-gradient-cloudy: var(--gradient-cloudy);
   --background-image-gradient-rain: var(--gradient-rain);
   --background-image-gradient-snow: var(--gradient-snow);
+  --background-image-gradient-destructive: var(--gradient-destructive);
 
   --shadow-soft: var(--shadow-soft-value);
 }

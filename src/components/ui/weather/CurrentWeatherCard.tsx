@@ -1,4 +1,4 @@
-import WeatherIcon from '@/components/weather/WeatherIcon';
+import WeatherIcon from '@/components/ui/weather/WeatherIcon';
 import type { WeatherData } from '@/types/weather';
 import { ArrowDown, ArrowUp } from 'lucide-react';
 

@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import Github from '@/components/ui/Github';
-import SearchBar from '@/components/weather/SearchBar';
+import SearchBar from '@/components/ui/weather/SearchBar';
 import { CloudSun, Moon, Sun } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
